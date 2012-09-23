@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <ul id="listticker">
+            <li>My News 1</li>
+            <li>My News 2</li>
+            <li>My News 3</li>
+            <li>My News 4</li>
+            <li>My News 5</li>
+        </ul>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var speed = 700;
+                var pause = 3500;
+
+                function removeLast() {
+                    $('ul#listticker li:last').fadeOut('slow', function() {addFirst(this);});
+                }
+
+                function addFirst(last) {
+                    $(last).insertBefore('ul#listticker li:first').fadeIn('slow');
+                }
+
+                interval = setInterval(removeLast, pause);
+            });
+        </script>
+    </body>
+</html>

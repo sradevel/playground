@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <ul id="listticker">
+            <li>My News 1</li>
+            <li>My News 2</li>
+            <li>My News 3</li>
+            <li>My News 4</li>
+            <li>My News 5</li>
+        </ul>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            /*
+            $(document).ready(function() {
+                var first = 0;
+                var speed = 700;
+                var pause = 3000;
+
+                function removeFirst() {
+                    first = $('ul#listticker li:first').html();
+                    $('ul#listticker li:first')
+                            .animate({opacity: 0}, speed)
+                            .fadeOut('slow', function() {$(this).remove();});
+                    addLast(first);
+                }
+
+                function addLast(first) {
+                    var last = first + '';
+
+                    $('ul#listticker').append(last);
+                    $('ul#listticker li:last')
+                            .animate({opacity: 1}, speed)
+                            .fadeIn('slow');
+                }
+
+                intervall = setInterval(removeFirst, pause);
+            });
+            */
+
+            $(document).ready(function() {
+                var speed = 700;
+                var pause = 3500;
+
+                function removeFirst() {
+                    $('ul#listticker li:first').fadeOut('slow', function() {addLast(this);});
+                }
+
+                function addLast(first) {
+                    $(first).insertAfter('ul#listticker li:last').fadeIn('slow');
+                }
+
+                interval = setInterval(removeFirst, pause);
+            });
+        </script>
+    </body>
+</html>
